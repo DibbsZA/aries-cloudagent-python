@@ -24,14 +24,14 @@ export POSTGRESQL_WALLET_ADMIN_PASSWORD="mysecretpassword"
 export ACAPY_ADMIN_URL="http://didx.myid.africa:${AGENT_ADMIN_PORT}"
 export ACAPY_AGENT_URL="http://didx.myid.africa:${AGENT_HTTP_PORT}"
 export ADMIN_PORT="20000"
-export POSTGRESQL_PORT="5433"
 export POSTGRESQL_HOST="admin-db"
-export POSTGRESQL_USER="admin-user"
-export POSTGRESQL_PASSWORD="userPWD"
-export POSTGRESQL_DATABASE="uxadmin-db"
-export POSTGRESQL_ADMIN_USER="pgadmin"
-export POSTGRESQL_ADMIN_PASSWORD="adminPWD"
+export POSTGRESQL_DATABASE_PORT="5433"
+export POSTGRESQL_DATABASE="IDENTITY_DB"
+export POSTGRESQL_USER="DB_USER"
+export POSTGRESQL_PASSWORD="DB_PASSWORD"
+export POSTGRESQL_ADMIN_USER="DB_ADMIN"
+export POSTGRESQL_ADMIN_PASSWORD="DB_ADMIN"
 
 # Start the containers
-docker-compose up -d
-docker-compose logs -f
+docker-compose up -V --abort-on-container-exit --build
+# docker-compose logs -f
