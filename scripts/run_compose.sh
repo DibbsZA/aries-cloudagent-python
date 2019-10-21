@@ -33,5 +33,6 @@ export POSTGRESQL_ADMIN_USER="DB_ADMIN"
 export POSTGRESQL_ADMIN_PASSWORD="DB_ADMIN"
 
 # Start the containers
-docker-compose up -V --abort-on-container-exit --build
+docker-compose up -V --abort-on-container-exit --build --always-recreate-deps
+# docker-compose up -d
 # docker-compose logs -f
