@@ -2,19 +2,19 @@ version: "3"
 
 services:
   # This will be used in future by the Admin Data Persist API
-  admin-db:
-    image: registry.access.redhat.com/rhscl/postgresql-10-rhel7:latest
-    environment:
-      POSTGRESQL_USER: ${POSTGRESQL_USER}
-      POSTGRESQL_PASSWORD: ${POSTGRESQL_PASSWORD}
-      POSTGRESQL_DATABASE: ${POSTGRESQL_DATABASE}
-      POSTGRESQL_ADMIN_PASSWORD: ${POSTGRESQL_ADMIN_PASSWORD}
-    ports:
-      - ${POSTGRESQL_DATABASE_PORT}:5432
-    networks:
-      - agent-net
-    volumes:
-      - admin-db-data:/var/lib/pgsql/data
+  # admin-db:
+  #   image: registry.access.redhat.com/rhscl/postgresql-10-rhel7:latest
+  #   environment:
+  #     POSTGRESQL_USER: ${POSTGRESQL_USER}
+  #     POSTGRESQL_PASSWORD: ${POSTGRESQL_PASSWORD}
+  #     POSTGRESQL_DATABASE: ${POSTGRESQL_DATABASE}
+  #     POSTGRESQL_ADMIN_PASSWORD: ${POSTGRESQL_ADMIN_PASSWORD}
+  #   ports:
+  #     - ${POSTGRESQL_DATABASE_PORT}:5432
+  #   networks:
+  #     - agent-net
+  #   volumes:
+  #     - admin-db-data:/var/lib/pgsql/data
 
   wallet-db:
     image: registry.access.redhat.com/rhscl/postgresql-10-rhel7:latest
@@ -47,11 +47,11 @@ services:
         --inbound-transport http '0.0.0.0' ${AGENT_HTTP_PORT} \
         --outbound-transport http \
         --endpoint ${AGENT_ENDPOINT} \
-        --genesis-url '${LEDGER_URL}/genesis' \
+        --genesis-url '${LEDGER_URL}' \
         --wallet-type 'indy' \
         --wallet-name '${WALLET_NAME}' \
         --wallet-key '${WALLET_ENCRYPTION_KEY}' \
-        --wallet-storage-type '${WALLET_TYPE}' \
+        --wallet-storage-type '${WALLET_STORAGE_TYPE}' \
         --wallet-storage-config '{\"url\":\"${POSTGRESQL_WALLET_HOST}:${POSTGRESQL_WALLET_PORT}\",\"max_connections\":5}' \
         --wallet-storage-creds '{\"account\":\"${POSTGRESQL_WALLET_USER}\",\"password\":\"${POSTGRESQL_WALLET_PASSWORD}\",\"admin_account\":\"${POSTGRESQL_WALLET_ADMIN_USER}\",\"admin_password\":\"${POSTGRESQL_WALLET_ADMIN_PASSWORD}\"}' \
         --seed '${AGENT_SEED}' \
@@ -70,16 +70,16 @@ services:
         --log-level debug",
       ]
 
-  agent-admin:
-    image: dibbsza/didx-ng-admin:latest
-    ports:
-      - "${IP:-0.0.0.0}:20000:80"
-    networks:
-      - agent-net
+  # agent-admin:
+  #   image: dibbsza/didx-ng-admin:latest
+  #   ports:
+  #     - "${IP:-0.0.0.0}:20000:80"
+  #   networks:
+  #     - agent-net
 
 networks:
   agent-net:
 
 volumes:
   agent-wallet-db:
-  admin-db-data:
+  # admin-db-data:
