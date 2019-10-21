@@ -74,6 +74,8 @@ services:
   #   image: dibbsza/didx-ng-admin:latest
   #   ports:
   #     - "${IP:-0.0.0.0}:20000:80"
+  #   depends_on:
+  #     - admin-db
   #   networks:
   #     - agent-net
 

@@ -13,9 +13,10 @@ export AGENT_SEED="00000000000000000000000didxdemo"
 # Agent DB
 export POSTGRESQL_WALLET_HOST="wallet-db"
 export POSTGRESQL_WALLET_PORT="5433"
+export POSTGRESQL_WALLET_DATABASE="agent-db"
 export POSTGRESQL_WALLET_USER="wallet-user"
 export POSTGRESQL_WALLET_PASSWORD="userPWD"
-export POSTGRESQL_WALLET_ADMIN_USER="wallet-admin"
+export POSTGRESQL_WALLET_ADMIN_USER="pgadmin"
 export POSTGRESQL_WALLET_ADMIN_PASSWORD="adminPWD"
 
 # Admin & Admin DB
@@ -26,8 +27,8 @@ export POSTGRESQL_DATABASE_PORT="5432"
 export POSTGRESQL_WALLET_HOST="admin-db"
 export POSTGRESQL_USER="admin-user"
 export POSTGRESQL_PASSWORD="userPWD"
-export POSTGRESQL_DATABASE="ngx-admin"
-export POSTGRESQL_ADMIN_USER="admin-admin"
+export POSTGRESQL_DATABASE="uxadmin-db"
+export POSTGRESQL_ADMIN_USER="pgadmin"
 export POSTGRESQL_ADMIN_PASSWORD="adminPWD"
 
 # Start the containers
