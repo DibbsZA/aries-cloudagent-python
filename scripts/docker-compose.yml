@@ -48,7 +48,8 @@ services:
         --inbound-transport http '0.0.0.0' ${AGENT_HTTP_PORT} \
         --outbound-transport http \
         --endpoint ${AGENT_ENDPOINT} \
-        --genesis-url '${LEDGER_URL}' \
+        --seed '${AGENT_SEED}' \
+        --genesis-url '${LEDGER_BUILD_URL}' \
         --wallet-type 'indy' \
         --wallet-name '${WALLET_NAME}' \
         --wallet-key '${WALLET_ENCRYPTION_KEY}' \
