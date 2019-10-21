@@ -31,4 +31,5 @@ export POSTGRESQL_ADMIN_USER="admin-admin"
 export POSTGRESQL_ADMIN_PASSWORD="adminPWD"
 
 # Start the containers
-docker-compose up
+docker-compose up -db
+docker-compose logs -f
