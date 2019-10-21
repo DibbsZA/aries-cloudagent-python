@@ -54,7 +54,6 @@ services:
         --wallet-storage-type '${WALLET_STORAGE_TYPE}' \
         --wallet-storage-config '{\"url\":\"${POSTGRESQL_WALLET_HOST}:${POSTGRESQL_WALLET_PORT}\",\"max_connections\":5}' \
         --wallet-storage-creds '{\"account\":\"${POSTGRESQL_WALLET_USER}\",\"password\":\"${POSTGRESQL_WALLET_PASSWORD}\",\"admin_account\":\"${POSTGRESQL_WALLET_ADMIN_USER}\",\"admin_password\":\"${POSTGRESQL_WALLET_ADMIN_PASSWORD}\"}' \
-        --seed '${AGENT_SEED}' \
         --admin '0.0.0.0' ${AGENT_ADMIN_PORT} \
         --${ACAPY_ADMIN_MODE} \
         --label ${AGENT_NAME} \
@@ -67,8 +66,9 @@ services:
         --auto-respond-presentation-proposal \
         --auto-respond-presentation-request \
         --timing \
-        --log-level debug",
       ]
+
+  # --seed '${AGENT_SEED}'
 
   # agent-admin:
   #   image: dibbsza/didx-ng-admin:latest
