@@ -40,7 +40,8 @@ services:
     depends_on:
       - wallet-db
     entrypoint: /bin/bash
-    command: [
+    command:
+      [
         "-c",
         "sleep 5;
         aca-py start \
@@ -66,10 +67,9 @@ services:
         --auto-respond-presentation-proposal \
         --auto-respond-presentation-request \
         --timing \
+        --log-level debug",
       ]
-
-  # --seed '${AGENT_SEED}'
-
+      # --seed '${AGENT_SEED}' \
   # agent-admin:
   #   image: dibbsza/didx-ng-admin:latest
   #   ports:
